@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirigir todas las solicitudes a index.php
+RewriteRule ^ index.php [L]
