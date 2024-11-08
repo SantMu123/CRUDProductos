@@ -4,7 +4,7 @@ function getDatabaseConnection() {
     $port = 11649;
     $user = 'root';
     $password = 'uJtjdeMkDtbQyNZbOSNVWmUmaHxDSXXi';
-    $database = 'railway';
+    $database = 'Tecnologia';
 
     try {
         $dsn = "mysql:host=$host;port=$port;dbname=$database;charset=utf8";
