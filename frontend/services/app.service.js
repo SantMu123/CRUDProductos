@@ -18,10 +18,10 @@ angular.module('productApp').service('productService', function($http) {
     };
 
     this.updateProduct = function(product) {
-        return $http.put(`${apiUrl}/products/${product.id}`, product);
+        return $http.put(`${apiUrl}/update/${product.id}`, product);
     };
 
     this.deleteProduct = function(id) {
-        return $http.delete(`${apiUrl}/products/${id}`);
+        return $http.delete(`${apiUrl}/delete/${id}`);
     };
 });
