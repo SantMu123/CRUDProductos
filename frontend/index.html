@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="productApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CRUD Productos</title>
@@ -12,20 +12,90 @@
     <script src="app.config.js"></script>
     <script src="services/app.service.js"></script>
     <script src="product-list/product-list.component.js"></script>
+    <script src="controllers/product-list.controller.js"></script>
 
 </head>
-<body>
+<body ng-app="productApp" ng-controller="productListController as ctrl" style="padding-top: 80px;">
     <header class="container">
         <div class="row bg-dark text-white py-3 fixed-top w-100">
             <div class="col text-center">
-                
-                <button class="btn btn-light">
-                    Productos
-                </button>
+                <ul class="list-unstyled row d-flex justify-content-center create">
+                    <li><button class="btn btn-light col mx-5" ng-click="ctrl.filterByCategory('Drones')">Drones</button></li>
+                    <li><button class="btn btn-light col mx-5" ng-click="ctrl.filterByCategory('Sensores')">Sensores</button></li>
+                    <li><button class="btn btn-light col mx-5" ng-click="ctrl.filterByCategory('Accesorios')">Accesorios</button></li>
+                    <li><button class="btn btn-secondary col mx-5" ng-click="ctrl.filterByCategory(null)">Mostrar Todos</button></li>
+                </ul>
             </div>
         </div>
     </header>
 
-   <div ng-view></div>
+    <button class="btn btn-success mt-5 mb-3" ng-click="ctrl.startCreate()">Añadir Producto</button>
+    <div ng-if="ctrl.isCreating" class="create-form mb-5">
+        <h3>Crear Producto</h3>
+        <form ng-submit="ctrl.createProduct()">
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" ng-model="ctrl.newProduct.code" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" ng-model="ctrl.newProduct.name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <select ng-model="ctrl.newProduct.category_id" class="form-control" required>
+                    <option ng-repeat="(name, id) in ctrl.categoryMap" value="{{ id }}">{{ name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input type="number" ng-model="ctrl.newProduct.price" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Producto</button>
+            <button type="button" class="btn btn-secondary" ng-click="ctrl.cancelCreate()">Cancelar</button>
+        </form>
+    </div>
+
+    <div class="mt-5 pt-3">
+        <div class="row">
+            <div class="col-md-4 mb-4" ng-repeat="product in ctrl.products">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Referencia: {{ product.code }}</p>
+                        <p class="card-text">Precio: ${{ product.price }}</p>
+                        <button class="btn btn-warning" ng-click="ctrl.startEdit(product)">Editar</button>
+                        <button class="btn btn-danger" ng-click="ctrl.deleteProduct(product.id)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="ctrl.isEditing" class="edit-form mt-5">
+        <h3>Editar Producto</h3>
+        <form ng-submit="ctrl.updateProduct()">
+            <div class="form-group">
+                <label>Código</label>
+                <input type="text" ng-model="ctrl.selectedProduct.code" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" ng-model="ctrl.selectedProduct.name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <select ng-model="ctrl.selectedProduct.category_id" class="form-control" required>
+                    <option ng-repeat="(name, id) in ctrl.categoryMap" value="{{ id }}">{{ name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input type="number" ng-model="ctrl.selectedProduct.price" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary" ng-click="ctrl.cancelEdit()">Cancelar</button>
+        </form>
+    </div>
 </body>
 </html>
