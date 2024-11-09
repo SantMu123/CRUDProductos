@@ -9,9 +9,7 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
-    <script src="app.config.js"></script>
     <script src="services/app.service.js"></script>
-    <script src="product-list/product-list.component.js"></script>
     <script src="controllers/product-list.controller.js"></script>
 
 </head>
@@ -30,7 +28,7 @@
     </header>
 
     <button class="btn btn-success m-5 mb-3" ng-click="ctrl.startCreate()">Añadir Producto</button>
-    <div ng-if="ctrl.isCreating" class="create-form mb-5">
+    <div ng-if="ctrl.isCreating" class="create-form mx-5 pt-3">
         <h3>Crear Producto</h3>
         <form ng-submit="ctrl.createProduct()">
             <div class="form-group">
