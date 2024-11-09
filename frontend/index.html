@@ -10,8 +10,22 @@
     <script src="lib/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
+    <script src="services/app.service.js"></script>
+    <script src="product-list/product-list.component.js"></script>
+
 </head>
 <body>
-   
+    <header class="container">
+        <div class="row bg-dark text-white py-3 fixed-top w-100">
+            <div class="col text-center">
+                
+                <button class="btn btn-light">
+                    Productos
+                </button>
+            </div>
+        </div>
+    </header>
+
+   <div ng-view></div>
 </body>
 </html>
