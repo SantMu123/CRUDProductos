@@ -1,0 +1,36 @@
+Consulta 1
+
+SELECT
+    prestamo.fecha_prestamo,
+    prestamo.fecha_devolucion,
+    libro.titulo,
+    libro.autor,
+    usuario.nombre,
+    usuario.apellido
+FROM
+    libro
+JOIN
+    prestamo ON libro.id = prestamo.libro_id
+JOIN
+    usuario ON prestamo.usuario_id = usuario.id
+WHERE
+    prestamo.fecha_devolucion IS NULL;
+
+
+Consulta 2
+
+SELECT
+    libro.titulo,
+    libro.autor,
+    usuario.nombre,
+    usuario.apellido,
+    prestamo.fecha_prestamo
+FROM
+    libro
+JOIN
+    prestamo ON libro.id = prestamo.libro_id
+JOIN
+    usuario ON prestamo.usuario_id = usuario.id
+WHERE
+    prestamo.fecha_devolucion IS NULL
+    AND prestamo.fecha_prestamo <= DATE_SUB(CURDATE(), INTERVAL 7 DAY);
