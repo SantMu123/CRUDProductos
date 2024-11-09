@@ -29,7 +29,7 @@
         </div>
     </header>
 
-    <button class="btn btn-success mt-5 mb-3" ng-click="ctrl.startCreate()">Añadir Producto</button>
+    <button class="btn btn-success m-5 mb-3" ng-click="ctrl.startCreate()">Añadir Producto</button>
     <div ng-if="ctrl.isCreating" class="create-form mb-5">
         <h3>Crear Producto</h3>
         <form ng-submit="ctrl.createProduct()">
@@ -56,11 +56,11 @@
         </form>
     </div>
 
-    <div class="mt-5 pt-3">
+    <div class="mx-5 pt-3">
         <div class="row">
             <div class="col-md-4 mb-4" ng-repeat="product in ctrl.products">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body bg-light border border-black">
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">Referencia: {{ product.code }}</p>
                         <p class="card-text">Precio: ${{ product.price }}</p>
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div ng-if="ctrl.isEditing" class="edit-form mt-5">
+    <div ng-if="ctrl.isEditing" class="edit-form m-5 pt-3">
         <h3>Editar Producto</h3>
         <form ng-submit="ctrl.updateProduct()">
             <div class="form-group">
