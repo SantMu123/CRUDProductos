@@ -26,7 +26,7 @@ angular.module('productApp')
 
     self.createProduct = function() {
         productService.createProduct(self.newProduct).then(function(response) {
-            console.log("Producto creado:", response.data);
+            //console.log("Producto:", response.data);
             self.loadProducts();
             self.cancelCreate();
         }).catch(function(error) {
@@ -47,7 +47,7 @@ angular.module('productApp')
     self.updateProduct = function() {
         if (self.selectedProduct && self.selectedProduct.id) {
             productService.updateProduct(self.selectedProduct).then(function(response) {
-                console.log("Producto actualizado:", response.data);
+                //console.log("Producto actualizado:", response.data);
                 self.loadProducts();
                 self.cancelEdit();
             }).catch(function(error) {
@@ -57,18 +57,18 @@ angular.module('productApp')
     };
 
     self.loadProducts = function() {
-        console.log("Categoria seleccionada: ", self.selectedCategoryId);
+        //console.log("Categoria seleccionada: ", self.selectedCategoryId);
 
         if (self.selectedCategoryId !== null) {
             productService.getProductsByCategory(self.selectedCategoryId).then(function(response) {
-                console.log(response);
+                //console.log(response);
                 self.products = response.data;
             }).catch(function(error) {
                 console.error('Error fetching products by category:', error);
             });
         } else {
             productService.getAllProducts().then(function(response) {
-                console.log(response);
+                //console.log(response);
                 self.products = response.data;
             }).catch(function(error) {
                 console.error('Error fetching all products:', error);
@@ -78,12 +78,12 @@ angular.module('productApp')
 
     self.filterByCategory = function(categoryName) {
         self.selectedCategoryId = self.categoryMap[categoryName] || null;
-        console.log("Filtrando por categoría: ", categoryName);
+        //console.log("Filtrando por: ", categoryName);
         self.loadProducts();  
     };
 
     self.$onInit = function() {
-        console.log("Controlador inicializado");
+        //console.log("Controlador iniciado");
         self.loadProducts();
     };
 
