@@ -1,0 +1,18 @@
+<div class="container-fluid" ng-controller="productListController as ctrl">
+    <div class="mt-5 pt-3">
+        <div class="row">
+            <div class="col-md-4 mb-4" ng-repeat="product in ctrl.products">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Referencia: {{ product.code }}</p>
+                        <p class="card-text">Precio: ${{ product.price }}</p>
+                        <button class="btn btn-warning">Editar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
