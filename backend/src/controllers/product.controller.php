@@ -9,7 +9,7 @@ class ProductController {
     }
 
     public function showAllProducts() {
-        $products = $this->productModel->showAllProducts();  // Cambié el nombre de la función
+        $products = $this->productModel->showAllProducts(); 
         header('Content-Type: application/json');
         echo json_encode($products);
         exit();
@@ -26,8 +26,8 @@ class ProductController {
         }
     }
 
-    public function createProduct($code, $name, $category_id, $price) {  // Cambié los parámetros
-        $response = $this->productModel->createProduct($code, $name, $category_id, $price);  // Cambié el nombre de la función
+    public function createProduct($code, $name, $category_id, $price) { 
+        $response = $this->productModel->createProduct($code, $name, $category_id, $price);
 
         header('Content-Type: application/json');
         if ($response == "Producto creado exitosamente") {
@@ -39,8 +39,8 @@ class ProductController {
     }
 
 
-    public function updateProduct($id, $code, $name, $category_id, $price) {  // Cambié los parámetros
-        $response = $this->productModel->updateProduct($id, $code, $name, $category_id, $price);  // Cambié el nombre de la función
+    public function updateProduct($id, $code, $name, $category_id, $price) { 
+        $response = $this->productModel->updateProduct($id, $code, $name, $category_id, $price); 
     
         header('Content-Type: application/json');
         if ($response === "Producto actualizado exitosamente.") {
@@ -52,7 +52,7 @@ class ProductController {
     }
 
     public function deleteProduct($id) {
-        $response = $this->productModel->deleteProduct($id);  // Cambié el nombre de la función
+        $response = $this->productModel->deleteProduct($id); 
     
         header('Content-Type: application/json');
         if ($response === "Producto eliminado exitosamente.") {
@@ -64,7 +64,7 @@ class ProductController {
     }
     
     public function getProductById($id) {
-        $product = $this->productModel->getProductById($id);  // Cambié el nombre de la función
+        $product = $this->productModel->getProductById($id); 
     
         header('Content-Type: application/json');
         if ($product) {

@@ -10,7 +10,6 @@ function handleRequest($uri, $method) {
         if ($uri === '/products') {
             $productsController->showAllProducts();
         }elseif (preg_match('/^\/products\/category\/(\d+)$/', $uri, $matches)) {
-            // Ruta para productos por categoría
             $category_id = $matches[1];
             $productsController->showProductsByCategory($category_id);
         }elseif (preg_match('/^\/products\/(\d+)$/', $uri, $matches)) {

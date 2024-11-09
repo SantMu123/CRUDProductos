@@ -11,9 +11,7 @@ function getDatabaseConnection() {
     $charset = getenv('DB_CHARSET');
 
     try {
-        // Crear el DSN para la conexión
         $dsn = "mysql:host=$host;port=$port;dbname=$database;charset=$charset";
-        // Conectar a la base de datos usando PDO
         $pdo = new PDO($dsn, $user, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
