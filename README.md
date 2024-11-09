@@ -38,6 +38,21 @@ Este proyecto es una aplicación web para la gestión de productos desarrollada 
 
    Opcion 2 (Forma local):
 
+   Primero se debe crear la base de datos de forma local:
+
+   ```mysql
+   CREATE DATABASE IF NOT EXISTS Tecnologia;
+   USE Tecnologia;
+   ```
+
+   Una vez creada la base de datos "Tecnologia" se ejecuta el siguiente comando estando en la raíz del proyecto
+
+   ```bash
+   mysql -u root -p Tecnologia < db.sql
+   ```
+
+   Luego, pegar las siguientes variables de entorno en el archivo **.env**
+
    ```bash
       DB_HOST=localhost
       DB_PORT=3306
@@ -47,12 +62,10 @@ Este proyecto es una aplicación web para la gestión de productos desarrollada 
       DB_CHARSET=utf8mb4
    ```
 
-   Para la opción dos, una vez definidas las variables de entorno se ejecuta el siguiente comando estando en la raiz del proyecto
+   **Nota**: Se recomienda ejecutarlo localmente para mayor rapidez de despliege de productos en la interfaz.
 
-   ```bash
-   mysql -u root -p Tecnologia < db.sql
-   ```
-
+   Importante primero crear la base de datos Tecnología para que no suceda el error de la imagen:
+   ![Paso a Paso configuracion para caso 2](./img/PasoaPasoCaso2.png)
 
 4. **Ejecutar la aplicación:**
 
