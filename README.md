@@ -1,6 +1,6 @@
 # Proyecto de CRUD - Gestión de Productos
 
-Este proyecto es una aplicación web para la gestión de productos desarrollada con **AngularJS** y **Bootstrap** en el frontend y **PHP** en el backend. La arquitectura sigue el modelo **MC** (Modelo-Controlador) para el backend, y el frontend organiza las funcionalidades en módulos y componentes.
+Este proyecto es una aplicación web para la gestión de productos desarrollada con **AngularJS** y **Bootstrap** en el frontend y **PHP** en el backend. La arquitectura sigue el modelo **MC** (Modelo-Controlador) para el backend, y el frontend organiza las funcionalidades en servicios y controladores.
 
 ## Despliegue del Proyecto
 
@@ -72,6 +72,12 @@ Una vez iniciado el servidor en el puerto 8000, navega a index.html para ver la 
    http://localhost:8000/index.html#!/
 
    ```
+
+## GIF
+
+Para dar mayor claridad comparto un gif del inicio y despliegue del proyecto
+
+![Gif de inicio y ejecucion del proyecto](./img/Video_inicio_ejecucion_proyecto.gif)
 
 ### Configuración de Puertos
 
